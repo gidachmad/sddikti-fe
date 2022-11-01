@@ -14,23 +14,34 @@ import tutWuri from '../mocks/imgs/tut-wuri.png'
 import { imageText } from '../mocks/data/loginText'
 
 export default function Login() {
+  const handleClickLogin = (event) => {
+    event.preventDefault()
+
+    alert('its clicked yeay')
+  }
   return (
     <>
       <CRow className='h-100'>
         <CCol md={4} className='p-4'>
-          <CImage src={tutWuri} alt='' />
-          <h2>Selamat Datang!</h2>
+          <div className='text-center'>
+            <CImage
+              src={tutWuri}
+              alt='Logo Tut Wuri Handayani'
+              className='text-center'
+            />
+            <h2>Selamat Datang!</h2>
+          </div>
 
           <h1>Masuk</h1>
           <p className='text-info'>Silakan masuk untuk melanjutkan</p>
-          <CForm className='m-4 form'>
+          <CForm className='m-4 form' onSubmit={(e) => handleClickLogin(e)}>
             <CFormLabel htmlFor='inputEmail'>Email</CFormLabel>
             <CFormInput
               type='email'
               id='inputEmail'
               placeholder='nama@gmail.com'
             />
-            <CFormLabel htmlFor='inputPassword'> Password</CFormLabel>
+            <CFormLabel htmlFor='inputPassword'>Password</CFormLabel>
             <CFormInput
               type='password'
               id='inputPassword'
@@ -38,17 +49,19 @@ export default function Login() {
             />
             <CRow>
               <CCol>
-                <CFormCheck label='Remember me' />
+                <CFormCheck label='Remember me' id='rememberMe' />
               </CCol>
-              <CCol>forget password</CCol>
+              <CCol className='text-end'>
+                <a href=''>forget password</a>
+              </CCol>
             </CRow>
-            <CButton type='submit' className='w-100 bg-info'>
+            <CButton type='submit' className='w-100 btn btn-primary'>
               Masuk
             </CButton>
             <p>
-              Belum memiliki akun?{' '}
+              Belum memiliki akun?
               <span>
-                <a href='#'>buat Akun</a>
+                <a href='#'> buat Akun </a>
               </span>
             </p>
           </CForm>
