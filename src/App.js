@@ -1,5 +1,5 @@
 import { CContainer } from '@coreui/react'
-import Login from './App/pages/Login'
+import Login from './App/pages/auth/Login'
 
 function App() {
   return (
